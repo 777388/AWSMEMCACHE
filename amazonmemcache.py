@@ -2,7 +2,7 @@ import os
 from multiprocessing import Process
 import sys
 print("python3 amazonmemcache.py filename)
-os.popen("shodan download --limit -1 "+sys.argv[1]+"mem.json.gz 'port:11211 \"STAT pid\" org:\"amazon\" country:\"US\"'").read()
+os.popen("shodan download --limit -1 "+sys.argv[1]+"mem.json.gz \"port:11211 \'STAT pid\' org:\'amazon\' country:\'US\'\"").read()
 ips = os.popen("shodan parse --fields ip_str "+sys.argv[1]+"mem.json.gz").read()
 def task(i):
     ip = ips.splitlines()
